@@ -3,6 +3,16 @@
 ## 목차
 
 14. [Rambda & Stream](#14-lambda--stream)
+    - [람다식](#1-람다식--함수를-간단한-식으로-표현하는-방법-익명-함수)
+    - [작성법](#2-람다식-작성하기)
+    - [주의사항](#3-주의-사항)
+    - [람다식 객체](#4-람다식)
+    - [함수형 인터페이스](#5-함수형-인터페이스--단-하나의-추상-메서드만-선언된-인터페이스)
+    - [함수형 인터페이스 반환타입](#6-함수형-인터페이스-타입의-매개변수-반환-타입)
+    - [java.util.function package](#7-javautilfunction-package)
+    - [function package Ex](#8-javautilfunction-예제)
+    - [](#)
+    - [](#)
 
 
 
@@ -99,4 +109,40 @@ int value = f.max(3,5)
          return () -> {}
       }
       ```
+<br>     
 
+#### 7. java.util.function package
+- 매개 변수가 1개인 함수형 인터페이스    
+
+    <img src="img.png" width="700" height="500">
+
+    ```
+    Predicate<String> isEmptyStr = s-> s.length() == 0;
+    String s = "";
+    if(isEmptyStr.test(s) System.out.println("This is an empty String")
+    ```
+    
+    <img src="img_1.png" width="500" height="200">
+    
+    ```
+    1. Supplier<Integer> // input x , output o
+    2. Consumer<Integer> // input o , output x 
+    3. Predicate<Integer,Boolean // output boolean
+    4. Function<Integer,Integer> // input o, output x
+    ```
+  
+- 매개 변수가 2개인 함수형 인터페이스
+
+    <img src="img_2.png" width="700" height="200">
+
+    ```
+    @FunctionalInterface
+    interface TriFunction<T,U,V,R>{ // 매개 변수 3개
+        R apply(T t, U, u, V, v);
+    }
+    ```
+- 매개변수의 타입과 반환타입이 일치하는 함수형 인터페이스
+  <img src="img_3.png" width="700" height="150">
+
+#### 8. java.util.function 예제
+- [Ex14_2](asd)
