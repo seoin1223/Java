@@ -145,4 +145,7 @@ int value = f.max(3,5)
   <img src="img_3.png" width="700" height="150">
 
 #### 8. java.util.function 예제
-- [Ex14_2](asd)
+- [Ex14_2](Java/src/main/java/Ex14_2.java)
+
+
+#### 9. Predicate 결합
