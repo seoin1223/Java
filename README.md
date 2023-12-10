@@ -1,4 +1,5 @@
 # Java
+출처 : 자바의 정석
 
 ## 목차
 
@@ -11,7 +12,7 @@
     - [함수형 인터페이스 반환타입](#6-함수형-인터페이스-타입의-매개변수-반환-타입)
     - [java.util.function package](#7-javautilfunction-package)
     - [function package Ex](#8-javautilfunction-예제)
-    - [](#)
+    - [Predicate 결합](#9-predicate-결합)
     - [](#)
 
 
@@ -149,3 +150,19 @@ int value = f.max(3,5)
 
 
 #### 9. Predicate 결합
+1. and(), or(), negate()로 두 Predicate를 하나로 결함(default method)
+   ```
+   Predicate<Integer> p = i -> i<100;
+   Predicate<Integer> q = i -> i<200;
+   Predicate<Integer> r = i%2 == 0;
+   
+   Predicate<Integer> notP = p.negate(); // i>=100
+   Predicate<Integer> all = notP.and(q).or(r) // 100>=i && i<200 || i%2 ==0
+   Predicate<Integer> all2 = notP.and(q.or(r)) // 100>=i && (i<200 || i%2 == 0)
+   ```
+
+2. 등가 비교를 위한 Predicate 작성은 isEqual() 사용(static)
+    ```
+    Predicatge<String> p = Predicate.isEqual(str);
+    Boolean result = p.test(str2)
+    ```
